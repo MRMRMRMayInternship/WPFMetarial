@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://www.cnblogs.com/sjqq/p/6661990.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="same-origin">
+<title>WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/bundle-Autumn.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/bundle-Autumn-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sjqq/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sjqq/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sjqq/wlwmanifest.xml">
+<script async="" src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/analytics.js.다운로드"></script><script src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sjqq', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table id="blog_header" cellspacing="0" cellpadding="0" width="100%" border="0" class="banner" height="250" background="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/bg_banner.jpg">
+        <tbody><tr>
+            <td width="61">
+                &nbsp;
+            </td>
+            <td width="236" align="center">
+                
+<br><br><br><br><br><br><br>
+<div id="header">
+	<span>
+		<a id="Header1_HeaderTitle" href="http://www.cnblogs.com/sjqq/">山涧清泉</a><br><br>
+		
+	</span>
+</div>
+            </td>
+            <td style="padding-bottom: 30px" align="center" valign="bottom">
+                &nbsp;
+            </td>
+        </tr>
+</tbody></table>
+<table align="center" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+        <td width="60">
+            &nbsp;
+        </td>
+        <td id="sidebar" valign="top" s="">
+            <table align="center" width="100%" height="1400" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+                <tbody><tr>
+                    <td class="banner" valign="top" style="padding-top: 0px">
+                        
+                            
+<div class="news"><div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/sjqq/">山涧清泉</a><br>园龄：<a href="https://home.cnblogs.com/u/sjqq/" title="入园时间：2016-07-01">1年6个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/sjqq/followers/">5</a><br>关注：<a href="https://home.cnblogs.com/u/sjqq/followees/">5</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;c8aee412-973f-e611-9fc1-ac853d9f53cc&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script></div>
+
+                            <div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/sjqq/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/sjqq/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/sjqq/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/sjqq/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/sjqq/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/sjqq/tag/WPF/">WPF</a>(133)</li><li><a href="http://www.cnblogs.com/sjqq/tag/asp.net/">asp.net</a>(80)</li><li><a href="http://www.cnblogs.com/sjqq/tag/JQuery/">JQuery</a>(65)</li><li><a href="http://www.cnblogs.com/sjqq/tag/asp.net%20mvc/">asp.net mvc</a>(63)</li><li><a href="http://www.cnblogs.com/sjqq/tag/C%23/">C#</a>(41)</li><li><a href="http://www.cnblogs.com/sjqq/tag/EF/">EF</a>(29)</li><li><a href="http://www.cnblogs.com/sjqq/tag/%E5%8F%8D%E5%B0%84/">反射</a>(17)</li><li><a href="http://www.cnblogs.com/sjqq/tag/CSS/">CSS</a>(16)</li><li><a href="http://www.cnblogs.com/sjqq/tag/LINQ/">LINQ</a>(15)</li><li><a href="http://www.cnblogs.com/sjqq/tag/IOC%E6%B3%A8%E5%85%A5/">IOC注入</a>(12)</li><li><a href="http://www.cnblogs.com/sjqq/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+		<h1 class="listtitle">随笔档案</h1>
+		
+				<ul class="list">
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2018/01.html">2018年1月 (2)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/12.html">2017年12月 (25)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_2" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/11.html">2017年11月 (61)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_3" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/10.html">2017年10月 (25)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_4" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/09.html">2017年9月 (43)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_5" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/08.html">2017年8月 (63)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_6" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/07.html">2017年7月 (22)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_7" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/06.html">2017年6月 (27)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_8" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/05.html">2017年5月 (49)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_9" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/04.html">2017年4月 (51)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_10" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/03.html">2017年3月 (58)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_11" class="listitem" href="http://www.cnblogs.com/sjqq/archive/2017/02.html">2017年2月 (164)</a> </li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sjqq/p/6400451.html#3707703">1. Re:实例讲解JQuery中this和$(this)区别</a></li>
+        <li class="recent_comment_body">大家互相学习</li>
+        <li class="recent_comment_author">--山涧清泉</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sjqq/p/6400451.html#3618888">2. Re:实例讲解JQuery中this和$(this)区别</a></li>
+        <li class="recent_comment_body">精彩,谢谢</li>
+        <li class="recent_comment_author">--TychoYang</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/sjqq/p/6383435.html">1. jquery用ajax方式从后台获取json数据后如何将内容填充到下拉列表(3536)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/6361348.html">2. jQuery继承extend用法详解(1686)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/6392001.html">3. JQuery实现可直接编辑的表格(1653)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/6361410.html">4. BootStrap中按钮点击后被禁用按钮的最佳实现方法(1402)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/6762632.html">5. c# 控制台程序 隐藏控制台窗口(1278)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/sjqq/p/6400451.html">1. 实例讲解JQuery中this和$(this)区别(2)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/sjqq/p/6410656.html">1. jQuery插件开发详细教程(1)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/7043721.html">2. EF通用数据层封装类（支持读写分离，一主多从）(1)</a></li><li><a href="http://www.cnblogs.com/sjqq/p/6777686.html">3. 应用开发之Linq和EF(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+                        
+                        <br>
+                        <center>
+                            Powered by <a href="http://www.cnblogs.com/">博客园</a>
+                        </center>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+        <td valign="top" style="padding: 0">
+            <table align="center" width="100%" height="1400" cellspacing="0" cellpadding="5" border="0" bgcolor="white" class="index">
+                <tbody><tr>
+                    <td class="banner" valign="top">
+                        <center>
+                            <a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a> <span id="sitehome_link_split">|</span> 
+<a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sjqq/">首页</a> <span id="bloghome_link_split">|</span> 
+<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a> <span id="newpost_link_split">|</span> 
+<!--<a id="MyLinks1_NewArticleLink" class="menu" href="/EnterMyBlog.aspx?NewArticle=1">发新文章</a> | -->
+<a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%B1%B1%E6%B6%A7%E6%B8%85%E6%B3%89">联系</a> <span id="contact_link_split">|</span>  
+<a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sjqq/rss">订阅</a><a id="blog_nav_rss_image" href="http://www.cnblogs.com/sjqq/rss"><img src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/xml.gif" alt="订阅"></a> <span id="rss_link_split">|</span> 
+<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+
+                        </center>
+                        
+<div id="post_detail">
+<div class="block">
+	<h1 class="block_title"><a id="cb_post_title_url" href="http://www.cnblogs.com/sjqq/p/6661990.html">WPF loading遮罩层 LoadingMask</a></h1>
+	<div class="post">
+		<div class="postcontent">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>先上张效果图看看 如果不如您的法眼 可以移步了 或者有更好的效果 可以留言给我&nbsp;</p>
+<p><img src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/JNVRJ3.png!web" alt="" width="507" height="310"></p>
+<p>废话不多说 直接贴代码 一个usercontrol</p>
+<p>&nbsp;</p>
+<pre class="prettyprint hljs cs">&lt;UserControl x:Class=<span class="hljs-string">"LoadingMask_Demo.LoadingWait"
+             xmlns=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             IsVisibleChanged=<span class="hljs-string">"HandleVisibleChanged"&gt;
+    &lt;UserControl.Background&gt;
+        &lt;SolidColorBrush Color=<span class="hljs-string">"Black" Opacity=<span class="hljs-string">"0.2"  /&gt;
+    &lt;/UserControl.Background&gt;
+    &lt;UserControl.Resources&gt;
+        &lt;SolidColorBrush Color=<span class="hljs-string">"#FF007BE5" x:Key=<span class="hljs-string">"CirclesColor" /&gt;
+        &lt;!--&lt;SolidColorBrush Color=<span class="hljs-string">"Black" x:Key=<span class="hljs-string">"BackgroundColor" Opacity=<span class="hljs-string">".20" /&gt;--&gt;
+    &lt;/UserControl.Resources&gt;
+
+    &lt;Viewbox Width=<span class="hljs-string">"100" Height=<span class="hljs-string">"100"  
+            HorizontalAlignment=<span class="hljs-string">"Center"  
+            VerticalAlignment=<span class="hljs-string">"Center"&gt;
+        &lt;Grid x:Name=<span class="hljs-string">"LayoutRoot"   
+                Background=<span class="hljs-string">"Transparent"  
+                ToolTip=<span class="hljs-string">"Please wait...."  
+                HorizontalAlignment=<span class="hljs-string">"Center"  
+                VerticalAlignment=<span class="hljs-string">"Center"&gt;
+            &lt;TextBlock Text=<span class="hljs-string">"Loading..."  HorizontalAlignment=<span class="hljs-string">"Center" VerticalAlignment=<span class="hljs-string">"Center" FontSize=<span class="hljs-string">"14" Foreground=<span class="hljs-string">"#FFE3953D" FontWeight=<span class="hljs-string">"Bold" /&gt;
+            &lt;Canvas RenderTransformOrigin=<span class="hljs-string">"0.5,0.5"  
+                    HorizontalAlignment=<span class="hljs-string">"Center"  
+                    VerticalAlignment=<span class="hljs-string">"Center" Width=<span class="hljs-string">"120"  
+                    Height=<span class="hljs-string">"120" Loaded=<span class="hljs-string">"HandleLoaded"  
+                    Unloaded=<span class="hljs-string">"HandleUnloaded"  &gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C0" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"1.0"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C1" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.9"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C2" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.8"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C3" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.7"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C4" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.6"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C5" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.5"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C6" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.4"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C7" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.3"/&gt;
+                &lt;Ellipse x:Name=<span class="hljs-string">"C8" Width=<span class="hljs-string">"20" Height=<span class="hljs-string">"20"  
+                         Canvas.Left=<span class="hljs-string">"0"  
+                         Canvas.Top=<span class="hljs-string">"0" Stretch=<span class="hljs-string">"Fill"  
+                         Fill=<span class="hljs-string">"{StaticResource CirclesColor}" Opacity=<span class="hljs-string">"0.2"/&gt;
+                &lt;Canvas.RenderTransform&gt;
+                    &lt;RotateTransform x:Name=<span class="hljs-string">"SpinnerRotate"  
+                         Angle=<span class="hljs-string">"0" /&gt;
+                &lt;/Canvas.RenderTransform&gt;
+            &lt;/Canvas&gt;
+        &lt;/Grid&gt;
+    &lt;/Viewbox&gt;
+&lt;/UserControl&gt;
+
+
+后台代码：
+
+
+<span class="hljs-keyword">using System;
+<span class="hljs-keyword">using System.Collections.Generic;
+<span class="hljs-keyword">using System.Linq;
+<span class="hljs-keyword">using System.Text;
+<span class="hljs-keyword">using System.Windows;
+<span class="hljs-keyword">using System.Windows.Controls;
+<span class="hljs-keyword">using System.Windows.Data;
+<span class="hljs-keyword">using System.Windows.Documents;
+<span class="hljs-keyword">using System.Windows.Input;
+<span class="hljs-keyword">using System.Windows.Media;
+<span class="hljs-keyword">using System.Windows.Media.Imaging;
+<span class="hljs-keyword">using System.Windows.Navigation;
+<span class="hljs-keyword">using System.Windows.Shapes;
+<span class="hljs-keyword">using System.Windows.Threading;
+
+<span class="hljs-keyword">namespace <span class="hljs-title">LoadingMask_Demo
+{
+    <span class="hljs-comment"><span class="hljs-doctag">/// <span class="hljs-doctag">&lt;summary&gt;
+    <span class="hljs-comment"><span class="hljs-doctag">/// Interaction logic for LoadingWait.xaml
+    <span class="hljs-comment"><span class="hljs-doctag">/// <span class="hljs-doctag">&lt;/summary&gt;
+    <span class="hljs-keyword">public <span class="hljs-keyword">partial <span class="hljs-keyword">class <span class="hljs-title">LoadingWait : <span class="hljs-title">UserControl
+    {
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">region Data
+        <span class="hljs-keyword">private <span class="hljs-keyword">readonly DispatcherTimer animationTimer;
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">region Constructor
+        <span class="hljs-function"><span class="hljs-keyword">public <span class="hljs-title">LoadingWait(<span class="hljs-params">)
+        {
+            InitializeComponent();
+
+            animationTimer = <span class="hljs-keyword">new DispatcherTimer(
+                DispatcherPriority.ContextIdle, Dispatcher);
+            animationTimer.Interval = <span class="hljs-keyword">new TimeSpan(<span class="hljs-number">0, <span class="hljs-number">0, <span class="hljs-number">0, <span class="hljs-number">0, <span class="hljs-number">90);
+        }
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">region Private Methods
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">Start(<span class="hljs-params">)
+        {
+            animationTimer.Tick += HandleAnimationTick;
+            animationTimer.Start();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">Stop(<span class="hljs-params">)
+        {
+            animationTimer.Stop();
+            animationTimer.Tick -= HandleAnimationTick;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">HandleAnimationTick(<span class="hljs-params"><span class="hljs-keyword">object sender, EventArgs e)
+        {
+            SpinnerRotate.Angle = (SpinnerRotate.Angle + <span class="hljs-number">36) % <span class="hljs-number">360;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">HandleLoaded(<span class="hljs-params"><span class="hljs-keyword">object sender, RoutedEventArgs e)
+        {
+            <span class="hljs-keyword">const <span class="hljs-keyword">double offset = Math.PI;
+            <span class="hljs-keyword">const <span class="hljs-keyword">double step = Math.PI * <span class="hljs-number">2 / <span class="hljs-number">10.0;
+
+            SetPosition(C0, offset, <span class="hljs-number">0.0, step);
+            SetPosition(C1, offset, <span class="hljs-number">1.0, step);
+            SetPosition(C2, offset, <span class="hljs-number">2.0, step);
+            SetPosition(C3, offset, <span class="hljs-number">3.0, step);
+            SetPosition(C4, offset, <span class="hljs-number">4.0, step);
+            SetPosition(C5, offset, <span class="hljs-number">5.0, step);
+            SetPosition(C6, offset, <span class="hljs-number">6.0, step);
+            SetPosition(C7, offset, <span class="hljs-number">7.0, step);
+            SetPosition(C8, offset, <span class="hljs-number">8.0, step);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">SetPosition(<span class="hljs-params">Ellipse ellipse, <span class="hljs-keyword">double offset,
+            <span class="hljs-keyword">double posOffSet, <span class="hljs-keyword">double step)
+        {
+            ellipse.SetValue(Canvas.LeftProperty, <span class="hljs-number">50.0
+                + Math.Sin(offset + posOffSet * step) * <span class="hljs-number">50.0);
+
+            ellipse.SetValue(Canvas.TopProperty, <span class="hljs-number">50
+                + Math.Cos(offset + posOffSet * step) * <span class="hljs-number">50.0);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">HandleUnloaded(<span class="hljs-params"><span class="hljs-keyword">object sender, RoutedEventArgs e)
+        {
+            Stop();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">HandleVisibleChanged(<span class="hljs-params"><span class="hljs-keyword">object sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            <span class="hljs-keyword">bool isVisible = (<span class="hljs-keyword">bool)e.NewValue;
+
+            <span class="hljs-keyword">if (isVisible)
+                Start();
+            <span class="hljs-function"><span class="hljs-keyword">else
+                <span class="hljs-title">Stop(<span class="hljs-params">);
+        }
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion  
+    }
+}</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br><br>调用的代码也贴出来吧</pre>
+<pre class="prettyprint hljs cs">&lt;Window x:Class=<span class="hljs-string">"LoadingMask_Demo.MainWindow"
+        xmlns=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=<span class="hljs-string">"MainWindow" Height=<span class="hljs-string">"350" Width=<span class="hljs-string">"525"
+        xmlns:local=<span class="hljs-string">"clr-namespace:LoadingMask_Demo"
+        &gt;
+    &lt;DockPanel&gt;
+        &lt;StackPanel Orientation=<span class="hljs-string">"Horizontal" DockPanel.Dock=<span class="hljs-string">"Top"&gt;
+            &lt;Button  Content=<span class="hljs-string">"show" Width=<span class="hljs-string">"70" Height=<span class="hljs-string">"30" Click=<span class="hljs-string">"ShowButton_Click" /&gt;
+            &lt;Button  Content=<span class="hljs-string">"hide" Width=<span class="hljs-string">"70" Height=<span class="hljs-string">"30" Click=<span class="hljs-string">"HideButton_Click"/&gt;
+        &lt;/StackPanel&gt;
+        
+        &lt;Grid Background=<span class="hljs-string">"#FF484848" DockPanel.Dock=<span class="hljs-string">"Bottom"&gt;
+            &lt;TextBlock Text=<span class="hljs-string">"asdfasdfasdf" Foreground=<span class="hljs-string">"White"/&gt;
+            &lt;local:LoadingWait x:Name=<span class="hljs-string">"_loading"  Visibility=<span class="hljs-string">"Collapsed"/&gt;
+        &lt;/Grid&gt;
+    &lt;/DockPanel&gt;
+&lt;/Window&gt;
+
+
+后台代码
+
+
+<span class="hljs-keyword">using System;
+<span class="hljs-keyword">using System.Collections.Generic;
+<span class="hljs-keyword">using System.Linq;
+<span class="hljs-keyword">using System.Text;
+<span class="hljs-keyword">using System.Windows;
+<span class="hljs-keyword">using System.Windows.Controls;
+<span class="hljs-keyword">using System.Windows.Data;
+<span class="hljs-keyword">using System.Windows.Documents;
+<span class="hljs-keyword">using System.Windows.Input;
+<span class="hljs-keyword">using System.Windows.Media;
+<span class="hljs-keyword">using System.Windows.Media.Imaging;
+<span class="hljs-keyword">using System.Windows.Navigation;
+<span class="hljs-keyword">using System.Windows.Shapes;
+
+<span class="hljs-keyword">namespace <span class="hljs-title">LoadingMask_Demo
+{
+    <span class="hljs-comment"><span class="hljs-doctag">/// <span class="hljs-doctag">&lt;summary&gt;
+    <span class="hljs-comment"><span class="hljs-doctag">/// Interaction logic for MainWindow.xaml
+    <span class="hljs-comment"><span class="hljs-doctag">/// <span class="hljs-doctag">&lt;/summary&gt;
+    <span class="hljs-keyword">public <span class="hljs-keyword">partial <span class="hljs-keyword">class <span class="hljs-title">MainWindow : <span class="hljs-title">Window
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public <span class="hljs-title">MainWindow(<span class="hljs-params">)
+        {
+            InitializeComponent();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">ShowButton_Click(<span class="hljs-params"><span class="hljs-keyword">object sender, RoutedEventArgs e)
+        {
+            <span class="hljs-keyword">this._loading.Visibility = Visibility.Visible;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private <span class="hljs-keyword">void <span class="hljs-title">HideButton_Click(<span class="hljs-params"><span class="hljs-keyword">object sender, RoutedEventArgs e)
+        {
+            <span class="hljs-keyword">this._loading.Visibility = Visibility.Collapsed;
+        }
+
+    }
+}</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/sjqq/tag/WPF/">WPF</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(6661990,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;c8aee412-973f-e611-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sjqq/" target="_blank"><img src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sjqq/">山涧清泉</a><br>
+            <a href="http://home.cnblogs.com/u/sjqq/followees">关注 - 5</a><br>
+            <a href="http://home.cnblogs.com/u/sjqq/followers">粉丝 - 5</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;c8aee412-973f-e611-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(6661990,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(6661990,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/sjqq/p/6637473.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/sjqq/p/6637473.html" title="发布于2017-03-28 22:53">WPF自定义控件与样式(11)-等待/忙/正在加载状态-控件实现</a><br><a href="http://www.cnblogs.com/sjqq/p/6662022.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/sjqq/p/6662022.html" title="发布于2017-04-03 15:16">Binding基础 文摘</a><br></div>
+</div>
+
+
+		</div>
+		<div class="itemdesc">
+			发表于 <span id="post-date">2017-04-03 15:02</span> <a href="http://www.cnblogs.com/sjqq/">山涧清泉</a> 阅读(<span id="post_view_count">120</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=6661990" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/sjqq/p/6661990.html#" onclick="AddToWz(6661990);return false;">收藏</a>
+		</div>
+	</div>
+	<div class="seperator">&nbsp;</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=329945,cb_entryId=6661990,cb_blogApp=currentBlogApp,cb_blogUserGuid='c8aee412-973f-e611-9fc1-ac853d9f53cc',cb_entryCreatedDate='2017/4/3 15:02:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/sjqq/p/6661990.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/sjqq/p/6661990.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型工控、组态\仿真、建模CAD源码2018！</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.h3bpm.net/" target="_blank"><img width="300" height="250" src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/24442-20171226125601900-422637433.jpg" alt="h3bpm 活动"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586537/" target="_blank">互联网娶妻指南：甘薇、杜鹃、马东敏 临危受命的夫人们</a><br> ·  <a href="https://news.cnblogs.com/n/586535/" target="_blank">亚马逊Alexa进军厨房 家庭煮妇发话即操作电器</a><br> ·  <a href="https://news.cnblogs.com/n/586534/" target="_blank">OpenWrt和LEDE项目宣布合并</a><br> ·  <a href="https://news.cnblogs.com/n/586525/" target="_blank">三星可卷曲屏幕新增功能：重力按压技术</a><br> ·  <a href="https://news.cnblogs.com/n/586503/" target="_blank">Mozilla确认intel CPU漏洞可用于提取用户上网信息 推荐及时升级</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./WPF loading遮罩层 LoadingMask - 山涧清泉 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+                    </div></td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+</body></html>

@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.cnblogs.com/chillsrc/p/4593109.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/bundle-ClassicBlue.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/bundle-ClassicBlue-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/chillsrc/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/chillsrc/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/chillsrc/wlwmanifest.xml">
+<script async="" src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/analytics.js.다운로드"></script><script type="text/javascript" src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/encoder.js.다운로드"></script><script src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'chillsrc', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/chillsrc/"><img id="blogLogo" src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/chillsrc/">DotNet菜园</a></h1>
+<h2>专注所以专业,专业所以专注</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/chillsrc/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/DotNet%E8%8F%9C%E5%9B%AD">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/chillsrc/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/chillsrc/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 192&nbsp; </span>
+<span id="stats_article_count">文章 - 32&nbsp; </span>
+<span id="stats-comment_count">评论 - 515</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/chillsrc/p/4593109.html">WPF入门教程系列八——布局之Grid与UniformGrid（三）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><strong><span style="font-size: 16px;">五.&nbsp;Grid</span></strong></p>
+<p><span style="font-size: 16px;">Grid<span style="font-family: 宋体;">顾名思义就是“网格”，它的子控件被放在一个一个实现定义好的小格子里面，整齐配列。</span>&nbsp;Grid和其他各个Panel比较起来，功能最多也最为复杂。要使用Grid，首先要向RowDefinitions和ColumnDefinitions属性中添加一定数量的RowDefinitions和&nbsp;ColumnDefinitions元素，从而定义行数和列数。而放置在Grid面板中的控件元素都必须显示采用附加属性语法定义其&nbsp;放置所在的行和列，它们都是以0为基准的整型&nbsp;值，如果没有显式设置任何行或列，Grid将会隐式地将控件加入在第0行第0列。由于Grid的组成并非简单的添加属性标记来区分行列，这也使得用户在实际应用中可以具体到某一单&nbsp;元格中，所以布局起来就很精细了。&nbsp;</span></p>
+<p><span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;Grid的单元格可以是空的，一个单元格中可以有多个元素，而在单元格中元素是根据它们的Z顺序一个接着一个呈现的。与Canvas一样，同一个单元格中&nbsp;的子元素不会与其他元素交互布局，信息——它们仅仅是重叠而已。接下来我们来使用一些实际的代码演示一下如何使用GRID。</span></p>
+<p class="NewStyle17"><span style="font-size: 16px;">1)&nbsp;Grid的列宽与行高可采用固定、自动、按比列三种方式定义&nbsp;</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid.RowDefinitions</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="Auto"</span> <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="Auto"</span> <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="*"</span> <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="40"</span> <span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid.RowDefinitions</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid.ColumnDefinitions</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="Auto"</span> <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="300"</span> <span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid.ColumnDefinitions</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">注意：这里介绍一下<span style="font-family: Calibri;">Grid</span><span style="font-family: 宋体;">高度、宽度的几种定义方式：</span></span></p>
+<table>
+<tbody>
+<tr>
+<td valign="top" width="149">
+<p><span style="font-size: 16px;">名称</span></p>
+
+</td>
+<td valign="top" width="419">
+<p><span style="font-size: 16px;">说明</span></p>
+
+</td>
+
+</tr>
+<tr>
+<td valign="top" width="149">
+<p><span style="font-size: 16px;">绝对尺寸</span></p>
+
+</td>
+<td valign="top" width="419">
+<p><span style="font-size: 16px;">就是给一个实际的数字，但通常将此值指定为整数，像上图中中那样</span></p>
+
+</td>
+
+</tr>
+<tr>
+<td valign="top" width="149">
+<p><span style="font-size: 16px;">自动<span style="font-family: Calibri;">(Autosizing)</span></span></p>
+
+</td>
+<td valign="top" width="419">
+<p><span style="font-size: 16px;">值为<span style="font-family: Calibri;">Auto</span><span style="font-family: 宋体;">，实际作用就是取实际控件所需的最小值</span></span></p>
+
+</td>
+
+</tr>
+<tr>
+<td valign="top" width="149">
+<p><span style="font-size: 16px;">StarSizing</span></p>
+
+</td>
+<td valign="top" width="419">
+<p><span style="font-size: 16px;">值为<span style="font-family: Calibri;">*</span><span style="font-family: 宋体;">或</span><span style="font-family: Calibri;">N*</span><span style="font-family: 宋体;">，实际作用就是取尽可能大的值，当某一列或行被定义为</span><span style="font-family: Calibri;">*</span><span style="font-family: 宋体;">则是尽可能大，当出现多列或行被定义为</span><span style="font-family: Calibri;">*</span><span style="font-family: 宋体;">则是代表几者之间按比例方设置尺寸</span></span></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<p><span style="font-size: 16px;">第一种，固定长度——宽度不够，会裁剪，不好用。单位pixel。&nbsp;</span><br><span style="font-size: 16px;">第二种，自动长度——自动匹配列中最长元素的宽度。&nbsp;</span><br><span style="font-size: 16px;">第三种，比例长度——*表示占用剩余的全部宽度；两行都是*，将平分剩余宽度；像上面的一个2*，一个*，表示前者2/3宽度。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p class="NewStyle17"><span style="font-size: 16px;">2)&nbsp;跨越多行和多列&nbsp;</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Rectangle </span><span style="color: #ff0000;">Fill</span><span style="color: #0000ff;">="Silver"</span><span style="color: #ff0000;"> Grid.Column</span><span style="color: #0000ff;">="1"</span><span style="color: #ff0000;"> Grid.ColumnSpan</span><span style="color: #0000ff;">="3"</span><span style="color: #0000ff;">/&gt;</span> </pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">使用Grid.ColumnSpan和Grid.RowSpan附加属性可以让相互间隔的行列合并，所以元素也可以跨越多个单元格。&nbsp;</span></p>
+<p class="NewStyle17"><span style="font-size: 16px;">3)&nbsp;使用GridSplit分割</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">GridSplitter </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="6"</span><span style="color: #ff0000;"> VerticalAlignment</span><span style="color: #0000ff;">="Stretch"</span><span style="color: #ff0000;"> HorizontalAlignment</span><span style="color: #0000ff;">="Stretch"</span><span style="color: #ff0000;"> 
+               Grid.Row</span><span style="color: #0000ff;">="2"</span><span style="color: #ff0000;"> Grid.Column</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">GridSplitter</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">使用GridSplit控件结合Grid控件实现类似于WinForm中SplitContainer的功能，这个大家在WinForm当中经常用到，我们也不多做介绍。</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p class="NewStyle17"><span style="font-size: 16px;">4) <span style="font-size: 16px;">XAML代码</span>实现下图效果（用XAML）：</span></p>
+<p><span style="font-size: 16px;">&nbsp;<img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/221159032992822.png" alt=""></span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Window </span><span style="color: #ff0000;">x:Class</span><span style="color: #0000ff;">="WpfApp1.WindowGridDemo"</span><span style="color: #ff0000;">
+
+        xmlns</span><span style="color: #0000ff;">="http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span><span style="color: #ff0000;">
+
+        xmlns:x</span><span style="color: #0000ff;">="http://schemas.microsoft.com/winfx/2006/xaml"</span><span style="color: #ff0000;">
+
+        Title</span><span style="color: #0000ff;">="WindowGridDemo"</span><span style="color: #ff0000;"> Height</span><span style="color: #0000ff;">="300"</span><span style="color: #ff0000;"> Width</span><span style="color: #0000ff;">="400"</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid.RowDefinitions</span><span style="color: #0000ff;">&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="61*"</span><span style="color: #0000ff;">/&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="101*"</span><span style="color: #0000ff;">/&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">RowDefinition </span><span style="color: #ff0000;">Height</span><span style="color: #0000ff;">="108*"</span><span style="color: #0000ff;">/&gt;</span>
+
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid.RowDefinitions</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid.ColumnDefinitions</span><span style="color: #0000ff;">&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="139"</span><span style="color: #0000ff;">/&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="184*"</span><span style="color: #0000ff;">/&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="45*"</span> <span style="color: #0000ff;">/&gt;</span>
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ColumnDefinition </span><span style="color: #ff0000;">Width</span><span style="color: #0000ff;">="250*"</span><span style="color: #0000ff;">/&gt;</span>
+
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid.ColumnDefinitions</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">TextBlock   </span><span style="color: #ff0000;">Grid.Row</span><span style="color: #0000ff;">="0"</span><span style="color: #ff0000;"> Grid.ColumnSpan</span><span style="color: #0000ff;">="1"</span><span style="color: #ff0000;">  Text</span><span style="color: #0000ff;">="第一行，第一列，占1列"</span><span style="color: #ff0000;"> Background</span><span style="color: #0000ff;">="Red"</span><span style="color: #ff0000;"> HorizontalAlignment</span><span style="color: #0000ff;">="Center"</span>  <span style="color: #0000ff;">/&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Grid.Row</span><span style="color: #0000ff;">="0"</span><span style="color: #ff0000;"> Grid.Column</span><span style="color: #0000ff;">="1"</span><span style="color: #ff0000;"> Grid.ColumnSpan</span><span style="color: #0000ff;">="3"</span><span style="color: #ff0000;"> Grid.RowSpan</span><span style="color: #0000ff;">="2"</span><span style="color: #ff0000;"> Content</span><span style="color: #0000ff;">="从第1行第2列开始，占两行，三列"</span> <span style="color: #0000ff;">/&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button  </span><span style="color: #ff0000;">Grid.Row</span><span style="color: #0000ff;">="2"</span><span style="color: #ff0000;"> Grid.Column</span><span style="color: #0000ff;">="0"</span><span style="color: #ff0000;"> Grid.ColumnSpan</span><span style="color: #0000ff;">="4"</span><span style="color: #ff0000;"> Content</span><span style="color: #0000ff;">="第3行，第1列开始，占4列"</span> <span style="color: #0000ff;">/&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Grid.Row</span><span style="color: #0000ff;">="1"</span><span style="color: #ff0000;"> Name</span><span style="color: #0000ff;">="btnAddByCode"</span><span style="color: #ff0000;"> Click</span><span style="color: #0000ff;">="btnAddByCode_Click"</span> <span style="color: #0000ff;">&gt;</span>后台代码生成(第2行第1列)<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Window</span><span style="color: #0000ff;">&gt;</span>
+
+ </pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p class="NewStyle17"><span style="font-size: 16px;">5)&nbsp; 下图，以C#代码实现：</span></p>
+<p><span style="font-size: 16px;">&nbsp;<img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/221159206114865.png" alt=""></span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading.Tasks;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Controls;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Data;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Documents;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Input;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Media;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Media.Imaging;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Shapes;
+
+ 
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> WpfApp1
+
+{
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+
+    <span style="color: #808080;">///</span><span style="color: #008000;"> WindowGridDemo.xaml 的交互逻辑
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> WindowGridDemo : Window
+
+    {
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> WindowGridDemo()
+
+        {
+
+            InitializeComponent();
+
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> btnAddByCode_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, RoutedEventArgs e)
+
+        {
+
+            Grid grid </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Grid();
+
+            grid.Width </span>= Double.NaN;    <span style="color: #008000;">//</span><span style="color: #008000;">相当于在XAML中设置Width="Auto"</span>
+<span style="color: #000000;">
+            grid.Height </span>= Double.NaN;   <span style="color: #008000;">//</span><span style="color: #008000;">相当于在XAML中设置Height="Auto"
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">把grid添加为窗体的子控件</span>
+
+            <span style="color: #0000ff;">this</span>.Content =<span style="color: #000000;"> grid;
+
+ 
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">列一</span>
+<span style="color: #000000;">
+            ColumnDefinition cd1 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ColumnDefinition();
+
+            cd1.Width </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">139</span><span style="color: #000000;">);
+
+            grid.ColumnDefinitions.Add(cd1);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">列二</span>
+<span style="color: #000000;">
+            ColumnDefinition cd2 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ColumnDefinition();
+
+            cd2.Width </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">1</span><span style="color: #000000;">, GridUnitType.Star);
+
+            grid.ColumnDefinitions.Add(cd2);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">列三</span>
+<span style="color: #000000;">
+            ColumnDefinition cd3 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ColumnDefinition();
+
+            cd3.Width </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">2</span><span style="color: #000000;">, GridUnitType.Star);
+
+            grid.ColumnDefinitions.Add(cd3);
+
+ 
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">行一</span>
+<span style="color: #000000;">
+            RowDefinition row1 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> RowDefinition();
+
+            row1.Height </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">61</span><span style="color: #000000;">);
+
+            grid.RowDefinitions.Add(row1);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">行二</span>
+<span style="color: #000000;">
+            RowDefinition row2 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> RowDefinition();
+
+            row2.Height </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">1</span><span style="color: #000000;">, GridUnitType.Star);
+
+            grid.RowDefinitions.Add(row2);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">行三</span>
+<span style="color: #000000;">
+            RowDefinition row3 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> RowDefinition();
+
+            row3.Height </span>= <span style="color: #0000ff;">new</span> GridLength(<span style="color: #800080;">200</span><span style="color: #000000;">);
+
+            grid.RowDefinitions.Add(row3);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">把单元格添加到grid中</span>
+<span style="color: #000000;">
+            Rectangle r0c1 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Rectangle();
+
+            r0c1.Fill </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> SolidColorBrush(Colors.Gray);
+
+            r0c1.SetValue(Grid.ColumnProperty, </span><span style="color: #800080;">0</span><span style="color: #000000;">);
+
+            r0c1.SetValue(Grid.RowProperty, </span><span style="color: #800080;">0</span><span style="color: #000000;">);
+
+            grid.Children.Add(r0c1);
+
+ 
+
+            Rectangle r1c23 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Rectangle();
+
+            r1c23.Fill </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> SolidColorBrush(Colors.Yellow);
+
+            r1c23.SetValue(Grid.ColumnProperty, </span><span style="color: #800080;">1</span><span style="color: #000000;">);
+
+            r1c23.SetValue(Grid.ColumnSpanProperty, </span><span style="color: #800080;">2</span><span style="color: #000000;">);
+
+            r1c23.SetValue(Grid.RowProperty, </span><span style="color: #800080;">1</span><span style="color: #000000;">);
+
+            r1c23.SetValue(Grid.RowSpanProperty, </span><span style="color: #800080;">2</span><span style="color: #000000;">);
+
+            grid.Children.Add(r1c23);
+
+ 
+
+        }
+
+    }
+
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">六、 UniformGrid&nbsp;</span></strong></p>
+<p><span style="font-size: 16px;">介绍了前面的Grid,接下来介绍的这个UniformGrid&nbsp;就是Grid的简化版，每个单元格的大小相同，不需要定义行列集合。每个单元格始终具有相同的大小，每个单元格只能容纳一个控件，将自动按照定义在其内部的元素个数，自动创建行列，并通常保持相同的行列数。UniformGrid&nbsp;<span style="font-family: 宋体;">中没有</span><span style="font-family: Calibri;">Row&nbsp;</span><span style="font-family: 宋体;">和</span><span style="font-family: Calibri;">Column&nbsp;</span><span style="font-family: 宋体;">附加属性，也没有空白单元格。</span></span></p>
+<p class="p"><span style="font-size: 16px;">与Grid布局控件相比，UniformGrid布局控件很少使用。Grid面板是用于创建简单乃至复杂窗口布局的通用工具。UniformGrid面板是一个一种更特殊的布局容器，主要用于在一个刻板的网格中快速地布局元素。</span></p>
+<p class="p"><span style="font-size: 16px;">&nbsp;</span></p>
+<p class="p"><span style="font-size: 16px;">下面用<span style="font-size: 16px;">XAML代码实现一个</span>示例，该示例使用4个按钮填充UniformGrid面板。：</span></p>
+<p><span style="font-size: 16px;">&nbsp;<img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/221200099248101.png" alt=""></span></p>
+<p><span style="font-size: 16px;">&nbsp;&nbsp;</span></p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Window </span><span style="color: #ff0000;">x:Class</span><span style="color: #0000ff;">="WpfApp1.WindowUniformGrid"</span><span style="color: #ff0000;">
+
+        xmlns</span><span style="color: #0000ff;">="http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span><span style="color: #ff0000;">
+
+        xmlns:x</span><span style="color: #0000ff;">="http://schemas.microsoft.com/winfx/2006/xaml"</span><span style="color: #ff0000;">
+
+        Title</span><span style="color: #0000ff;">="WindowUniformGrid"</span><span style="color: #ff0000;"> Height</span><span style="color: #0000ff;">="300"</span><span style="color: #ff0000;"> Width</span><span style="color: #0000ff;">="300"</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">UniformGrid </span><span style="color: #ff0000;">Rows</span><span style="color: #0000ff;">="2"</span><span style="color: #ff0000;"> Columns</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>第一个(0,0)<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>第二个(0,1)<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>第三个(1,0)<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button </span><span style="color: #ff0000;">Name</span><span style="color: #0000ff;">="btnAddByCode"</span><span style="color: #ff0000;"> Click</span><span style="color: #0000ff;">="btnAddByCode_Click"</span><span style="color: #0000ff;">&gt;</span>第四个(1,1)<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Button</span><span style="color: #0000ff;">&gt;</span>
+
+ 
+
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">UniformGrid</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Grid</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">Window</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;">&nbsp;</span></p>
+<p><span style="font-size: 16px;">下面使用<span style="font-size: 16px;">C#代码实现</span>10个TextBlock的控件的布局。</span></p>
+<p><span style="font-size: 16px;">&nbsp;<img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/221200576894907.png" alt=""></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading.Tasks;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Controls;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Controls.Primitives;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Data;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Documents;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Input;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Media;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Media.Imaging;
+
+</span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Shapes;
+
+ 
+
+</span><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> WpfApp1
+
+{
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;summary&gt;</span>
+
+    <span style="color: #808080;">///</span><span style="color: #008000;"> WindowUniformGrid.xaml 的交互逻辑
+
+    </span><span style="color: #808080;">///</span> <span style="color: #808080;">&lt;/summary&gt;</span>
+
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> WindowUniformGrid : Window
+
+    {
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> WindowUniformGrid()
+
+        {
+
+            InitializeComponent();
+
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> btnAddByCode_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, RoutedEventArgs e)
+
+        {
+
+            UniformGrid wp </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> UniformGrid();
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">把wp添加为窗体的子控件</span>
+
+            <span style="color: #0000ff;">this</span>.Content =<span style="color: #000000;"> wp;
+
+            wp.Margin </span>= <span style="color: #0000ff;">new</span> Thickness(<span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+
+            wp.Background </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> SolidColorBrush(Colors.Red);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">遍历增加Rectangles</span>
+<span style="color: #000000;">
+            TextBlock block;
+
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt;= <span style="color: #800080;">10</span>; i++<span style="color: #000000;">)
+
+            {
+
+                block </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> TextBlock();
+
+                block.Text </span>= <span style="color: #0000ff;">string</span>.Format(<span style="color: #800000;">"</span><span style="color: #800000;">第{0}个</span><span style="color: #800000;">"</span><span style="color: #000000;">, i);
+
+                wp.Children.Add(block);
+
+            }
+
+ 
+
+        }
+
+    }
+
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/chillsrc/category/684419.html" target="_blank">WPF</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4593109,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;c642360b-63cf-dd11-9e4d-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/chillsrc/" target="_blank"><img src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/chillsrc/">DotNet菜园</a><br>
+            <a href="http://home.cnblogs.com/u/chillsrc/followees">关注 - 1</a><br>
+            <a href="http://home.cnblogs.com/u/chillsrc/followers">粉丝 - 973</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;c642360b-63cf-dd11-9e4d-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4593109,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">10</span>
+    </div>
+    <div class="buryit" onclick="votePost(4593109,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/chillsrc/p/4585630.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/chillsrc/p/4585630.html" title="发布于2015-06-18 13:28">WPF入门教程系列七——布局之WrapPanel与StackPanel（二）</a><br><a href="http://www.cnblogs.com/chillsrc/p/4610135.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/chillsrc/p/4610135.html" title="发布于2015-06-30 13:07">WPF入门教程系列九——布局之DockPanel与ViewBox（四）</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-06-22 12:03</span> <a href="http://www.cnblogs.com/chillsrc/">DotNet菜园</a> 阅读(<span id="post_view_count">19596</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4593109" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/chillsrc/p/4593109.html#" onclick="AddToWz(4593109);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=13897,cb_entryId=4593109,cb_blogApp=currentBlogApp,cb_blogUserGuid='c642360b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2015/6/22 12:03:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/chillsrc/p/4593109.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/chillsrc/p/4593109.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型工控、组态\仿真、建模CAD源码2018！</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.h3bpm.net/" target="_blank"><img width="300" height="250" src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/24442-20171226125601900-422637433.jpg" alt="h3bpm 活动"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586545/" target="_blank">获诺奖2年后 屠呦呦有突破性发现 2018还将憋大招</a><br> ·  <a href="https://news.cnblogs.com/n/586542/" target="_blank">SpaceX机密发射任务再度因故延期 重型猎鹰首发或被拖累</a><br> ·  <a href="https://news.cnblogs.com/n/586544/" target="_blank">可折叠手机Surface Phone的相机可能会这样设计</a><br> ·  <a href="https://news.cnblogs.com/n/586541/" target="_blank">全新Nokia 6发布，诺基亚终于学会在中国卖出良心价了？</a><br> ·  <a href="https://news.cnblogs.com/n/586540/" target="_blank">银河麒麟操作系统如何服务寻常百姓家</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./WPF入门教程系列八——布局之Grid与UniformGrid（三） - DotNet菜园 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/chillsrc/">DotNet菜园</a><br>园龄：<a href="https://home.cnblogs.com/u/chillsrc/" title="入园时间：2005-09-09">12年3个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/chillsrc/followers/">973</a><br>关注：<a href="https://home.cnblogs.com/u/chillsrc/followees/">1</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;c642360b-63cf-dd11-9e4d-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/chillsrc/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/chillsrc/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/chillsrc/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/chillsrc/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/chillsrc/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/chillsrc/p/8177807.html">1. 多线程编程学习笔记——使用并发集合（一）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/8124436.html">2. 多线程编程学习笔记——async和await（三）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/8080559.html">3. 多线程编程学习笔记——async和await（二）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/8057913.html">4. 多线程编程学习笔记——async和await（一）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/8023571.html">5. 多线程编程学习笔记——任务并行库（四）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/7993492.html">6. 多线程编程学习笔记——任务并行库（三）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/7941955.html">7. 多线程编程学习笔记——任务并行库（二）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/7891186.html">8. 多线程编程学习笔记——任务并行库（一）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/7864929.html">9. 多线程编程学习笔记——线程池（三）</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/7824936.html">10. 多线程编程学习笔记——线程池（二）</a></li>
+</ul>
+</div>
+</div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(199)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/chillsrc/category/49636.html">ajax(9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/chillsrc/category/49631.html">AspNet(24)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/chillsrc/category/49630.html">c#(30)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/chillsrc/category/51674.html">Enterprise Library(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/chillsrc/category/73967.html">ReportingService(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/chillsrc/category/797439.html">WCF(31)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/chillsrc/category/684419.html">WPF(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/chillsrc/category/49633.html">控件开发(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/chillsrc/category/155848.html">设计(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/chillsrc/category/49632.html">数据库(58)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/chillsrc/category/49900.html">水晶报表(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/chillsrc/category/252042.html">银光志(2)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(192)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/chillsrc/archive/2018/01.html">2018年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/chillsrc/archive/2017/12.html">2017年12月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/chillsrc/archive/2017/11.html">2017年11月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/chillsrc/archive/2017/10.html">2017年10月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/chillsrc/archive/2017/09.html">2017年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/chillsrc/archive/2017/08.html">2017年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/chillsrc/archive/2017/03.html">2017年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/chillsrc/archive/2017/02.html">2017年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/chillsrc/archive/2016/12.html">2016年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/chillsrc/archive/2016/11.html">2016年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/chillsrc/archive/2016/10.html">2016年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/chillsrc/archive/2016/09.html">2016年9月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/chillsrc/archive/2016/08.html">2016年8月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/chillsrc/archive/2016/07.html">2016年7月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/chillsrc/archive/2016/06.html">2016年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/chillsrc/archive/2016/05.html">2016年5月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/chillsrc/archive/2016/04.html">2016年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/chillsrc/archive/2016/03.html">2016年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/chillsrc/archive/2015/10.html">2015年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/chillsrc/archive/2015/09.html">2015年9月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/chillsrc/archive/2015/08.html">2015年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/chillsrc/archive/2015/07.html">2015年7月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/chillsrc/archive/2015/06.html">2015年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/chillsrc/archive/2015/05.html">2015年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/chillsrc/archive/2015/04.html">2015年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/chillsrc/archive/2015/01.html">2015年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/chillsrc/archive/2014/11.html">2014年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/chillsrc/archive/2014/08.html">2014年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/chillsrc/archive/2014/07.html">2014年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/chillsrc/archive/2014/06.html">2014年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/chillsrc/archive/2014/05.html">2014年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/chillsrc/archive/2014/04.html">2014年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/chillsrc/archive/2014/03.html">2014年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_33" href="http://www.cnblogs.com/chillsrc/archive/2013/12.html">2013年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_34" href="http://www.cnblogs.com/chillsrc/archive/2013/11.html">2013年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_35" href="http://www.cnblogs.com/chillsrc/archive/2013/10.html">2013年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_36" href="http://www.cnblogs.com/chillsrc/archive/2013/06.html">2013年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_37" href="http://www.cnblogs.com/chillsrc/archive/2013/05.html">2013年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_38" href="http://www.cnblogs.com/chillsrc/archive/2013/04.html">2013年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_39" href="http://www.cnblogs.com/chillsrc/archive/2013/03.html">2013年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_40" href="http://www.cnblogs.com/chillsrc/archive/2013/01.html">2013年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_41" href="http://www.cnblogs.com/chillsrc/archive/2012/12.html">2012年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_42" href="http://www.cnblogs.com/chillsrc/archive/2012/11.html">2012年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_43" href="http://www.cnblogs.com/chillsrc/archive/2012/10.html">2012年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_44" href="http://www.cnblogs.com/chillsrc/archive/2012/09.html">2012年9月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_45" href="http://www.cnblogs.com/chillsrc/archive/2012/08.html">2012年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_46" href="http://www.cnblogs.com/chillsrc/archive/2012/06.html">2012年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_47" href="http://www.cnblogs.com/chillsrc/archive/2012/04.html">2012年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_48" href="http://www.cnblogs.com/chillsrc/archive/2012/01.html">2012年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_49" href="http://www.cnblogs.com/chillsrc/archive/2011/11.html">2011年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_50" href="http://www.cnblogs.com/chillsrc/archive/2011/10.html">2011年10月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_51" href="http://www.cnblogs.com/chillsrc/archive/2011/09.html">2011年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_52" href="http://www.cnblogs.com/chillsrc/archive/2011/03.html">2011年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_53" href="http://www.cnblogs.com/chillsrc/archive/2011/01.html">2011年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_54" href="http://www.cnblogs.com/chillsrc/archive/2010/12.html">2010年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_55" href="http://www.cnblogs.com/chillsrc/archive/2010/07.html">2010年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_56" href="http://www.cnblogs.com/chillsrc/archive/2010/06.html">2010年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_57" href="http://www.cnblogs.com/chillsrc/archive/2010/05.html">2010年5月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_58" href="http://www.cnblogs.com/chillsrc/archive/2010/04.html">2010年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_59" href="http://www.cnblogs.com/chillsrc/archive/2010/03.html">2010年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_60" href="http://www.cnblogs.com/chillsrc/archive/2010/02.html">2010年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_61" href="http://www.cnblogs.com/chillsrc/archive/2009/09.html">2009年9月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_62" href="http://www.cnblogs.com/chillsrc/archive/2009/08.html">2009年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_63" href="http://www.cnblogs.com/chillsrc/archive/2009/04.html">2009年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_64" href="http://www.cnblogs.com/chillsrc/archive/2008/12.html">2008年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_65" href="http://www.cnblogs.com/chillsrc/archive/2008/11.html">2008年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_66" href="http://www.cnblogs.com/chillsrc/archive/2008/10.html">2008年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_67" href="http://www.cnblogs.com/chillsrc/archive/2008/09.html">2008年9月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_68" href="http://www.cnblogs.com/chillsrc/archive/2008/08.html">2008年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_69" href="http://www.cnblogs.com/chillsrc/archive/2008/07.html">2008年7月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_70" href="http://www.cnblogs.com/chillsrc/archive/2008/04.html">2008年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_71" href="http://www.cnblogs.com/chillsrc/archive/2008/03.html">2008年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_72" href="http://www.cnblogs.com/chillsrc/archive/2008/01.html">2008年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_73" href="http://www.cnblogs.com/chillsrc/archive/2007/09.html">2007年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_74" href="http://www.cnblogs.com/chillsrc/archive/2007/08.html">2007年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_75" href="http://www.cnblogs.com/chillsrc/archive/2007/07.html">2007年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_76" href="http://www.cnblogs.com/chillsrc/archive/2007/01.html">2007年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_77" href="http://www.cnblogs.com/chillsrc/archive/2006/12.html">2006年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_78" href="http://www.cnblogs.com/chillsrc/archive/2006/10.html">2006年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_79" href="http://www.cnblogs.com/chillsrc/archive/2006/06.html">2006年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_80" href="http://www.cnblogs.com/chillsrc/archive/2006/05.html">2006年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_81" href="http://www.cnblogs.com/chillsrc/archive/2006/04.html">2006年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_82" href="http://www.cnblogs.com/chillsrc/archive/2006/03.html">2006年3月 (7)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlecategory" class="catListArticleCategory sidebar-block">
+<h3 class="catListTitle">文章分类<span style="font-size:11px;font-weight:normal">(29)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/chillsrc/category/52836.html">Code(16)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/chillsrc/category/53076.html">开源(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/chillsrc/category/51183.html">语音(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/chillsrc/category/53202.html">资料(10)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlearchive" class="catListArticleArchive sidebar-block">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(32)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://www.cnblogs.com/chillsrc/archives/2017/08.html" rel="nofollow">2017年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_1" href="http://www.cnblogs.com/chillsrc/archives/2012/04.html" rel="nofollow">2012年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_2" href="http://www.cnblogs.com/chillsrc/archives/2011/04.html" rel="nofollow">2011年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_3" href="http://www.cnblogs.com/chillsrc/archives/2010/12.html" rel="nofollow">2010年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_4" href="http://www.cnblogs.com/chillsrc/archives/2010/06.html" rel="nofollow">2010年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_5" href="http://www.cnblogs.com/chillsrc/archives/2009/11.html" rel="nofollow">2009年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_6" href="http://www.cnblogs.com/chillsrc/archives/2009/09.html" rel="nofollow">2009年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_7" href="http://www.cnblogs.com/chillsrc/archives/2008/02.html" rel="nofollow">2008年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_8" href="http://www.cnblogs.com/chillsrc/archives/2007/12.html" rel="nofollow">2007年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_9" href="http://www.cnblogs.com/chillsrc/archives/2007/07.html" rel="nofollow">2007年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_10" href="http://www.cnblogs.com/chillsrc/archives/2006/10.html" rel="nofollow">2006年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_11" href="http://www.cnblogs.com/chillsrc/archives/2006/09.html" rel="nofollow">2006年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_12" href="http://www.cnblogs.com/chillsrc/archives/2006/08.html" rel="nofollow">2006年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_13" href="http://www.cnblogs.com/chillsrc/archives/2006/07.html" rel="nofollow">2006年7月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_14" href="http://www.cnblogs.com/chillsrc/archives/2006/06.html" rel="nofollow">2006年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_15" href="http://www.cnblogs.com/chillsrc/archives/2006/04.html" rel="nofollow">2006年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_16" href="http://www.cnblogs.com/chillsrc/archives/2006/03.html" rel="nofollow">2006年3月 (7)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_links51064" class="catList sidebar-block">
+<h3 class="catListTitle">.Net重要技术</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_4_Link_0" href="http://www.cnblogs.com/modestmt/p/5480773.html" rel="nofollow">.NET爬虫框架: DotnetSpider</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_1" href="http://www.cnblogs.com/asxinyu/p/Bolg_Category_For_DotNet_OpenSource.html" rel="nofollow">C#.NET开源项目</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_2" href="http://www.developingfor.net/" rel="nofollow">Developing for .NET</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_3" href="http://fineboy.cnblogs.com/category/33552.html">Dot Net设计模式—MVC模式 </a> </li>
+
+<li><a id="CatList_LinkList_4_Link_4" href="http://www.codeplex.com/ExtJsExtenderControl" rel="nofollow">ext js 2.0 .net服务器端控件</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_5" href="http://hometown.aol.de/_ht_a/memtronic/MemTronic_CruncherCompressor.html" rel="nofollow">javascript压缩混淆工具 </a> </li>
+
+<li><a id="CatList_LinkList_4_Link_6" href="http://rickie.cnblogs.com/category/18821.html?Show=All">ms企业库</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_7" href="http://www.narchitecture.net/Default.aspx" rel="nofollow">NHibernate资源及说明</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_8" href="http://terrylee.cnblogs.com/" rel="nofollow">Terrylee--el+设计模式</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_9" href="https://github.com/hupo376787/A-Beautiful-UWP-Frame" rel="nofollow">UWP Windows框架</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_10" href="http://www.codeplex.com/SharedCache" rel="nofollow">分布式缓存解决方案</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_11" href="http://www.cnblogs.com/artech/" rel="nofollow">推荐博文系列-Artech</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_12" href="http://www.cnblogs.com/mienreal/" rel="nofollow">阳光铭睿—Web架构师</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/chillsrc/p/4482691.html#3882054">1. Re:WPF入门教程系列四——Dispatcher介绍</a></li>
+        <li class="recent_comment_body">这篇中，对于两个线程的问题，美太懂，就是UI线程和后台线程的关系和职责。</li>
+        <li class="recent_comment_author">--Naylor</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/chillsrc/p/4898061.html#3880789">2. Re:WPF入门教程系列二十二——DataGrid示例(二)</a></li>
+        <li class="recent_comment_body">S_City 这个东西没有<br>using System.Data.Entity;这个引用不到</li>
+        <li class="recent_comment_author">--BoyBoy</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/chillsrc/archive/2012/08/29/2662642.html#3880699">3. Re:SQL Server 查询性能优化——堆表、碎片与索引（一）</a></li>
+        <li class="recent_comment_body">您好，<br>你的文章对我非常有帮助，冒昧想请教下 查询密度值的SQL语句，不知可否赐教。</li>
+        <li class="recent_comment_author">--墨子白</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/chillsrc/p/8177807.html#3879643">4. Re:多线程编程学习笔记——使用并发集合（一）</a></li>
+        <li class="recent_comment_body">大牛，你好</li>
+        <li class="recent_comment_author">--~雨落忧伤~</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/chillsrc/p/4633653.html#3877335">5. Re:WPF入门教程系列十一——依赖属性（一）</a></li>
+        <li class="recent_comment_body">原来没看懂，现在看豁然开朗</li>
+        <li class="recent_comment_author">--誓鼎</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/chillsrc/p/4464023.html">1. WPF入门教程系列一——基础(123305)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2013/01/30/2883648.html">2. WEB版一次选择多个文件进行批量上传(Plupload)的解决方案(53391)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2010/02/21/1670594.html">3. WEB版一次选择多个文件进行批量上传(swfupload)的解决方案(52369)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/3446548.html">4. 对于System.Net.Http的学习（二）——使用 HttpClient 进行连接(44845)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2012/09/19/2694313.html">5. SQL Server 查询性能优化——创建索引原则（一）(43771)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/chillsrc/archive/2009/09/21/1571444.html">1. 数据库优化方法(二)(28)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2013/01/30/2883648.html">2. WEB版一次选择多个文件进行批量上传(Plupload)的解决方案(24)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2010/02/21/1670594.html">3. WEB版一次选择多个文件进行批量上传(swfupload)的解决方案(23)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/3805067.html">4. 学习ASP.NET MVC(五)——我的第一个ASP.NET MVC CURD页面(16)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/4475882.html">5. WPF入门教程系列三——Application介绍(续)(13)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/chillsrc/archive/2012/09/19/2694313.html">1. SQL Server 查询性能优化——创建索引原则（一）(22)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/4482691.html">2. WPF入门教程系列四——Dispatcher介绍(20)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/4464023.html">3. WPF入门教程系列一——基础(19)</a></li><li><a href="http://www.cnblogs.com/chillsrc/archive/2013/01/30/2883648.html">4. WEB版一次选择多个文件进行批量上传(Plupload)的解决方案(15)</a></li><li><a href="http://www.cnblogs.com/chillsrc/p/4475882.html">5. WPF入门教程系列三——Application介绍(续)(10)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 DotNet菜园
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

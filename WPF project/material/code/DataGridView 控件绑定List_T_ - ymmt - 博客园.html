@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataGridView 控件绑定List&lt;T&gt; - ymmt - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/bundle-KJC.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/bundle-KJC-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/ymmt/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/ymmt/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/ymmt/wlwmanifest.xml">
+<script async="" src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/analytics.js.다운로드"></script><script type="text/javascript" src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/encoder.js.다운로드"></script><script src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'ymmt', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table class="Framework" cellspacing="0" cellpadding="0" width="100%">
+	<tbody><tr>
+		<td colspan="3">
+			
+<div id="top">
+<table cellpadding="10" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="">
+			<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/ymmt/">我的博客园</a></h1>
+			.NET,Ajax,DataBase,Javascript
+		</td>
+	</tr>
+</tbody></table>
+</div>
+<div id="sub">
+	<div id="sub-right"></div>
+	
+&nbsp;
+<a id="blog_nav_sitehome" href="http://www.cnblogs.com/">博客园</a>&nbsp;:: 
+<a id="blog_nav_myhome" href="http://www.cnblogs.com/ymmt/">首页</a>&nbsp;::
+<a id="blog_nav_newpost" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp;::
+
+<a id="blog_nav_rss" href="http://www.cnblogs.com/ymmt/rss">订阅</a>
+<a id="blog_nav_rss_image" class="XMLLink" href="http://www.cnblogs.com/ymmt/rss"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;::
+<a id="blog_nav_admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+
+</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="LeftCell">
+			<div id="leftmenu">
+            	
+		            <div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		            
+<div id="cell">
+<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>公告</h3>
+<div id="news">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/ymmt/">ymmt</a><br>园龄：<a href="https://home.cnblogs.com/u/ymmt/" title="入园时间：2009-10-06">8年2个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/ymmt/followers/">15</a><br>关注：<a href="https://home.cnblogs.com/u/ymmt/followees/">7</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;2c432671-70b2-de11-ba8f-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+</div>
+
+	            
+	            <div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="cell">
+<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3 class="catListTitle">搜索</h3>
+
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div></div><div id="sidebar_shortcut" class="sidebar-block">
+<div id="cell">
+<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3>常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/ymmt/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/ymmt/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/ymmt/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/ymmt/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/ymmt/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div id="cell">
+<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+<h3>我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/ymmt/tag/JS/">JS</a>(10)</li><li><a href="http://www.cnblogs.com/ymmt/tag/.NET/">.NET</a>(7)</li><li><a href="http://www.cnblogs.com/ymmt/tag/JAVA/">JAVA</a>(6)</li><li><a href="http://www.cnblogs.com/ymmt/tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>(6)</li><li><a href="http://www.cnblogs.com/ymmt/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>(3)</li><li><a href="http://www.cnblogs.com/ymmt/tag/WinForm/">WinForm</a>(3)</li><li><a href="http://www.cnblogs.com/ymmt/tag/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/">网络知识</a>(2)</li><li><a href="http://www.cnblogs.com/ymmt/tag/%E5%B0%8F%E8%BD%AF%E4%BB%B6/">小软件</a>(2)</li><li><a href="http://www.cnblogs.com/ymmt/tag/Web%E5%BC%80%E5%8F%91/">Web开发</a>(2)</li><li><a href="http://www.cnblogs.com/ymmt/tag/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>(1)</li><li><a href="http://www.cnblogs.com/ymmt/tag/">更多</a></li>
+</ul>
+</div>
+</div></div><div id="sidebar_categories">
+		<div id="cell">
+		<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>.Net开发(C#)</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/lerit/archive/2010/02/04/1663405.html" target="_blank">《C#与.NET3.5高级程序设计(第4版)》笔记</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/yukaizhao/archive/2010/05/13/linq_to_sql_1.html">LINQ to SQL 系列 如何CURD</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/open24hours/archive/2010/04/20/1715910.html" target="_blank">Visual C# 最佳实践</a>
+				</li>
+			<li class="c_b_p_link_desc">程序概念，数据类型，语句结构，变量，运算符</li>
+				<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/downmoon/category/211907.html" target="_blank">邀月工作室</a>
+				</li>
+			<li class="c_b_p_link_desc">Utility</li>
+				</ul>
+			</div>
+	
+		<div id="cell">
+		<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>CSDN</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_1_Link_0" href="http://blog.csdn.net/CodingMouse" rel="nofollow">CodingMouse的专栏</a>
+				</li>
+			<li class="c_b_p_link_desc">java &amp; js</li>
+				</ul>
+			</div>
+	
+		<div id="cell">
+		<img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2"><h3>博客园</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/abatei/" rel="nofollow" target="_blank">abatei-数据结构</a>
+				</li>
+			<li class="c_b_p_link_desc">数据结构(C#)</li>
+				<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/QinBaoBei/category/235398.html" target="_blank">ASP.NET AJAX_╭☆涩 轨ら - BoyXiao</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/cloudgamer/" rel="nofollow" target="_blank">cloudgamer的博客(JS非常牛)</a>
+				</li>
+			
+				<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/lhb25" rel="nofollow" target="_blank">梦想天空（山边小溪）</a>
+				</li>
+			<li class="c_b_p_link_desc">web前端开发</li>
+				</ul>
+			</div>
+	</div><div id="recent_comments_wrap">
+    <div id="cell">
+        <img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+        <h3>最新评论</h3>
+        <div class="RecentComment">
+            <div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ymmt/archive/2012/03/10/2389307.html#3210263">1. Re:java环境变量配置</a></li>
+        <li class="recent_comment_body">谢谢你啊，我搞懂了用命令行运行Java程序的步骤！</li>
+        <li class="recent_comment_author">--wuyefeima</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ymmt/archive/2012/03/10/2389307.html#3154097">2. Re:java环境变量配置</a></li>
+        <li class="recent_comment_body">新版本的jdk，在配置环境变量的时候更简单了，这里有新版本jdk环境变量的配置介绍：<a href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html" target="_blank">新版本jdk的环境变量配置</a></li>
+        <li class="recent_comment_author">--didwang</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ymmt/p/3178480.html#2727412">3. Re:C#修改下拉框选项的高度</a></li>
+        <li class="recent_comment_body">@liyuanjiawinforms下拉框的选项高度默认不可调，上面的代码只是重画了一下，效果也不太好，只是字体可以设大一点而以。自己试试就知道了。...</li>
+        <li class="recent_comment_author">--ymmt</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ymmt/p/3178480.html#2723405">4. Re:C#修改下拉框选项的高度</a></li>
+        <li class="recent_comment_body">能否附上效果图！</li>
+        <li class="recent_comment_author">--liyuanjia</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ymmt/archive/2012/04/11/2442230.html#2358416">5. Re:Apache+php+mysql在windows下的安装与配置</a></li>
+        <li class="recent_comment_body">@SnowerS请看看这篇：希望对你有帮助！...</li>
+        <li class="recent_comment_author">--Hongten</li>
+</ul>
+</div>
+        </div>
+    </div>
+</div>
+<div id="topview_posts_wrap">
+    <div id="cell">
+        <img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon-group.jpg" hspace="5" align="left" vspace="2">
+        <h3>阅读排行榜</h3>
+        <div class="RecentComment">
+            <div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/ymmt/archive/2010/07/27/1786395.html">1. html——黑体、斜体、下划线及删除线(76129)</a></li><li><a href="http://www.cnblogs.com/ymmt/archive/2012/03/10/2389307.html">2. java环境变量配置(46943)</a></li><li><a href="http://www.cnblogs.com/ymmt/archive/2010/11/05/1870190.html">3. JS Date函数整理(1)(14168)</a></li><li><a href="http://www.cnblogs.com/ymmt/archive/2010/11/24/1886835.html">4. System.Data.SQLite数据库介绍(7253)</a></li><li><a href="http://www.cnblogs.com/ymmt/archive/2012/03/10/2389266.html">5. 控制台方式运行java程序示例(1871)</a></li></ul></div>
+        </div>
+    </div>
+</div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+		</td>
+		<td class="MainCell">
+			<div id="main">
+				
+<div id="post_detail">
+	<div class="post">
+		<div class="posthead">
+			<h2>
+				<a id="cb_post_title_url" class="singleposttitle" href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html">DataGridView 控件绑定List&lt;T&gt;</a>
+			</h2>
+ 			Posted on <span id="post-date">2010-06-29 01:30</span> <a href="http://www.cnblogs.com/ymmt/">ymmt</a> 阅读(<span id="post_view_count">1336</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=1767158" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html#" onclick="AddToWz(1767158);return false;">收藏</a>
+			<script type="text/javascript">var allowComments=true,cb_blogId=61575,cb_entryId=1767158,cb_blogApp=currentBlogApp,cb_blogUserGuid='2c432671-70b2-de11-ba8f-001cf0cd104b',cb_entryCreatedDate='2010/6/29 1:30:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+			
+		</div>
+		<div class="postbody"><div id="cnblogs_post_body" class="blogpost-body"><p>DataGridView 控件绑定List&lt;T&gt;示例：</p>
+<p>虽然最终只需要几行简单的代码就可完成绑定，可是由于一些小问题搞了半天才显示出来。</p>
+<p>有一点注意，要显示的数据结构中，指向对象的属性，必须是属性，而不能字段！即使是public也不行！</p>
+<p>&nbsp;</p>
+<div onclick="cnblogs_code_show(&#39;c89ad736-3e00-4bd6-abec-4672eb0d853c&#39;)" class="cnblogs_code"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/ContractedBlock.gif" class="code_img_closed" id="code_img_closed_c89ad736-3e00-4bd6-abec-4672eb0d853c" style="display: none;"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/ExpandedBlockStart.gif" onclick="cnblogs_code_hide(&#39;c89ad736-3e00-4bd6-abec-4672eb0d853c&#39;,event)" class="code_img_opened" id="code_img_opened_c89ad736-3e00-4bd6-abec-4672eb0d853c" style="display: inline;"><span class="cnblogs_code_collapse" style="display: none;">代码</span>
+<div class="cnblogs_code_hide" id="cnblogs_code_open_c89ad736-3e00-4bd6-abec-4672eb0d853c" style="display: block;"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><div><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #0000ff;">using</span><span style="color: #000000;"> System;<br></span><span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Forms;<br><br><br></span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> DataBind : Form<br>{<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> DataGridView dataGridView1 </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> DataGridView();<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> BindingSource bindingSource1 </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> BindingSource();<br><br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> DataBind ()<br>    {<br>        </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.Load </span><span style="color: #000000;">+=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> System.EventHandler(DataBind _Load);<br>    }<br><br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> DataBind _Load(</span><span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, System.EventArgs e)<br>    {<br>        <br>                 DataGridViewTextBoxColumn col1 </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> DataGridViewTextBoxColumn();<br>            col1.HeaderText </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            col1.DataPropertyName </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            col1.Name </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            DataGridViewTextBoxColumn col2 </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> DataGridViewTextBoxColumn();<br>            col2.HeaderText </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">姓名</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            col2.DataPropertyName </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">Name</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            col2.Name </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">Name</span><span style="color: #800000;">"</span><span style="color: #000000;">;<br>            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.dataGridView1.Columns.Add(col1);<br>            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.dataGridView1.Columns.Add(col2);<br><br>            IList</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">UserData</span><span style="color: #000000;">&gt;</span><span style="color: #000000;"> list </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> List</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">UserData</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">();<br>            list.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> UserData(</span><span style="color: #800000;">"</span><span style="color: #800000;">001</span><span style="color: #800000;">"</span><span style="color: #000000;">, </span><span style="color: #800000;">"</span><span style="color: #800000;">tom</span><span style="color: #800000;">"</span><span style="color: #000000;">));<br>            list.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> UserData(</span><span style="color: #800000;">"</span><span style="color: #800000;">002</span><span style="color: #800000;">"</span><span style="color: #000000;">, </span><span style="color: #800000;">"</span><span style="color: #800000;">bill</span><span style="color: #800000;">"</span><span style="color: #000000;">));<br>            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.dataGridView1.DataSource </span><span style="color: #000000;">=</span><span style="color: #000000;"> list;   <br><br>    }<br><br>    </span><span style="color: #0000ff;">#region</span><span style="color: #000000;"> "business object"</span><span style="color: #000000;"><br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> UserData<br>    {<br>        </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> _ID;<br>        </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> _Name;<br>        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> ID;<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">public string ID<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">{<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">    get { return _ID; }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">    set { _ID = value; }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">}</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br>        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> Name<br>        {<br>            </span><span style="color: #0000ff;">get</span><span style="color: #000000;"> { </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> _Name; }<br>            </span><span style="color: #0000ff;">set</span><span style="color: #000000;"> { _Name </span><span style="color: #000000;">=</span><span style="color: #000000;"> value; }<br>        }<br><br>        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> UserData(</span><span style="color: #0000ff;">string</span><span style="color: #000000;"> id, </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> name)<br>        {<br>            _ID </span><span style="color: #000000;">=</span><span style="color: #000000;"> id;<br>            _Name </span><span style="color: #000000;">=</span><span style="color: #000000;"> name;<br>        }<br>    <br>    </span><span style="color: #0000ff;">#endregion</span><span style="color: #000000;"><br><br>    [STAThread]<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">static</span><span style="color: #000000;"> </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> Main()<br>    {<br>        Application.Run(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> DataBind());<br>    }<br><br>}</span></div></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/ymmt/tag/.NET/">.NET</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(1767158,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;2c432671-70b2-de11-ba8f-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ymmt/" target="_blank"><img src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ymmt/">ymmt</a><br>
+            <a href="http://home.cnblogs.com/u/ymmt/followees">关注 - 7</a><br>
+            <a href="http://home.cnblogs.com/u/ymmt/followers">粉丝 - 15</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;2c432671-70b2-de11-ba8f-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(1767158,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(1767158,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/ymmt/archive/2010/06/27/1766268.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/ymmt/archive/2010/06/27/1766268.html" title="发布于2010-06-27 18:55">C# 创建互斥程序_只允许运行一个程序实例</a><br><a href="http://www.cnblogs.com/ymmt/archive/2010/07/07/1772547.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/ymmt/archive/2010/07/07/1772547.html" title="发布于2010-07-07 00:19">&lt;转&gt;DataGridView自定义行样式和行标题</a><br></div>
+</div>
+
+</div>
+	</div></div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/ymmt/archive/2010/06/29/1767158.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/24442-20171206093739878-889349568.png" alt="AR_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586198/" target="_blank">专访王劲：我和百度不一样</a><br> ·  <a href="https://news.cnblogs.com/n/586195/" target="_blank">第三季度高通智能手机处理器市场份额领先 苹果第二</a><br> ·  <a href="https://news.cnblogs.com/n/586197/" target="_blank">三星电子四季度或盈利150亿美元 暴增七成</a><br> ·  <a href="https://news.cnblogs.com/n/586196/" target="_blank">花旗分析师：苹果可能收购Netflix 概率40%</a><br> ·  <a href="https://news.cnblogs.com/n/586194/" target="_blank">Snap CEO花400万美元为员工办年会 据说请Drake献唱</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./DataGridView 控件绑定List_T_ - ymmt - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="FooterCell">
+			
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © ymmt
+</p>
+
+		</td>
+	</tr>
+</tbody></table>
+
+<!--PageEndHtml Block Begin-->
+<div style="text-align:center;">hello everyone!</div>
+<!--PageEndHtml Block End-->
+
+
+</body></html>
